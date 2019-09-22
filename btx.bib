@@ -1,0 +1,427 @@
+@inproceedings{zhang2014,
+  title={Addressing cold start in recommender systems: A semi-supervised co-training algorithm},
+  author={Zhang, Mi and Tang, Jie and Zhang, Xuchen and Xue, Xiangyang},
+  booktitle={Proceedings of the 37th international ACM SIGIR conference on Research \& development in information retrieval},
+  pages={73--82},
+  year={2014},
+  organization={ACM},
+  my_comment={レコメンデーションの研究。ユーザーの属性情報を用いて推定するモデルとアイテムの属性情報を用いて推定するモデルで交互に推定して、未観測値を補完するという半教師学習の共学習モデルを提案している。}
+}
+
+@inproceedings{blum1998,
+  title={Combining labeled and unlabeled data with co-training},
+  author={Blum, Avrim and Mitchell, Tom},
+  booktitle={Proceedings of the eleventh annual conference on Computational learning theory},
+  pages={92--100},
+  year={1998},
+  organization={ACM}
+}
+
+@article{shi2014collaborative,
+  title={Collaborative filtering beyond the user-item matrix: A survey of the state of the art and future challenges},
+  author={Shi, Yue and Larson, Martha and Hanjalic, Alan},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={47},
+  number={1},
+  pages={3},
+  year={2014},
+  publisher={ACM},
+  my_comment={
+  Collaborative Filteringのサーベイ論文。被引用数350くらい。
+既存の研究を、アルゴリズムとして[Memory-Based, Model-Based, Graph-Based]に分類し、さらに[only User-Item Matrix, with Additional Data]に細分化した上で今後の研究課題についてまとめている。
+全般を通して、UserIDとItemIDのインタラクションデータであるUser-Item Matrixに対して、Userの属性情報やタイムスタンプなどのAddtional Dataの活用を論点としている。
+  }
+}
+
+@inproceedings{schein2002methods,
+  title={Methods and metrics for cold-start recommendations},
+  author={Schein, Andrew I and Popescul, Alexandrin and Ungar, Lyle H and Pennock, David M},
+  booktitle={Proceedings of the 25th annual international ACM SIGIR conference on Research and development in information retrieval},
+  pages={253--260},
+  year={2002},
+  organization={ACM},
+  my_comment={two-way-aspect-modelの提案論文。PLSAを応用してアイテムとユーザーが共通の潜在クラスに属する仮定をおいて推定する。2018/12時点で引用数は1700}
+}
+
+@article{lika2014facing,
+  title={Facing the cold start problem in recommender systems},
+  author={Lika, Blerina and Kolomvatsos, Kostas and Hadjiefthymiades, Stathes},
+  journal={Expert Systems with Applications},
+  volume={41},
+  number={4},
+  pages={2065--2073},
+  year={2014},
+  publisher={Elsevier}
+}
+
+
+@article{koren2009matrix,
+  title={Matrix factorization techniques for recommender systems},
+  author={Koren, Yehuda and Bell, Robert and Volinsky, Chris},
+  journal={Computer},
+  number={8},
+  pages={30--37},
+  year={2009},
+  publisher={IEEE},
+  my_comment={
+  現在（2018）のstage of arts であるMatrix Factorizationを紹介した文献。Netflixの懸賞問題の紹介文献でもある。引用数は2018時点で4800。
+  }  
+}
+
+@article{deshpande2004item,
+  title={Item-based top-n recommendation algorithms},
+  author={Deshpande, Mukund and Karypis, George},
+  journal={ACM Transactions on Information Systems (TOIS)},
+  volume={22},
+  number={1},
+  pages={143--177},
+  year={2004},
+  publisher={ACM}
+}
+
+@inproceedings{breese1998empirical,
+  title={Empirical analysis of predictive algorithms for collaborative filtering},
+  author={Breese, John S and Heckerman, David and Kadie, Carl},
+  booktitle={Proceedings of the Fourteenth conference on Uncertainty in artificial intelligence},
+  pages={43--52},
+  year={1998},
+  organization={Morgan Kaufmann Publishers Inc.}
+}
+
+@article{su2009survey,
+  title={A survey of collaborative filtering techniques},
+  author={Su, Xiaoyuan and Khoshgoftaar, Taghi M},
+  journal={Advances in artificial intelligence},
+  volume={2009},
+  pages={4},
+  year={2009},
+  publisher={Hindawi Publishing Corp.}
+}
+
+@article{yin2012challenging,
+  title={Challenging the long tail recommendation},
+  author={Yin, Hongzhi and Cui, Bin and Li, Jing and Yao, Junjie and Chen, Chen},
+  journal={Proceedings of the VLDB Endowment},
+  volume={5},
+  number={9},
+  pages={896--907},
+  year={2012},
+  publisher={VLDB Endowment}
+}
+
+@inproceedings{cremonesi2010performance,
+  title={Performance of recommender algorithms on top-n recommendation tasks},
+  author={Cremonesi, Paolo and Koren, Yehuda and Turrin, Roberto},
+  booktitle={Proceedings of the fourth ACM conference on Recommender systems},
+  pages={39--46},
+  year={2010},
+  organization={ACM},
+  my_comment={レコメンデーションのN-topリストを出力し、そこにユーザーが満足するリストが含まれているかを厳密に計測するための手続きを提案した論文。2018/12時点で引用数は860}
+}
+
+@inproceedings{yildirim2008random,
+  title={A random walk method for alleviating the sparsity problem in collaborative filtering},
+  author={Yildirim, Hilmi and Krishnamoorthy, Mukkai S},
+  booktitle={Proceedings of the 2008 ACM conference on Recommender systems},
+  pages={131--138},
+  year={2008},
+  organization={ACM},
+  my_comment={ユーザーIDとアイテムIDを隣接行列に見立てたグラフモデルを、レコメンデーションの問題に適応した論文。この論文ではシンプルにRandomWalkを適応している。この論文では提案する手法が疎データにおいて有効であることが主張されている。2018年で引用数は200。}
+}
+
+
+@article{melville2002content,
+  title={Content-boosted collaborative filtering for improved recommendations},
+  author={Melville, Prem and Mooney, Raymond J and Nagarajan, Ramadass},
+  journal={Aaai/iaai},
+  volume={23},
+  pages={187--192},
+  year={2002},
+  my_comment={Model-Basedの手法に対して、User-Item MatrixだけでなくAttributesデータを考慮してCold-Start問題にも対応した手法を提案している。アプローチとしては、何らかなの手段でItemごとのAttributesデータを取得し、未計測のUser-Itemのレビュースコアをコンテンツベースで予測する。そうして、予測結果をUser-Item Matrixの未計測部分に埋め直して、実測のスコアと予測スコアが混在する密なUser-Item Matrixを作る。この密になったUser-Item Matrixに対して、Collaborative Filtering手法を適応する}
+}
+
+@inproceedings{singh2008relational,
+  title={Relational learning via collective matrix factorization},
+  author={Singh, Ajit P and Gordon, Geoffrey J},
+  booktitle={Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={650--658},
+  year={2008},
+  organization={ACM},
+  my_comment={
+  Item-User Matrixだけではなく、ユーザーやアイテムの属性情報も考慮できるModel-Based Collaborative Filteringの提案論文。2018年時点で被引用数は674。まだ未読です。
+  }
+}
+
+@inproceedings{bu2010music,
+  title={Music recommendation by unified hypergraph: combining social media information and music content},
+  author={Bu, Jiajun and Tan, Shulong and Chen, Chun and Wang, Can and Wu, Hao and Zhang, Lijun and He, Xiaofei},
+  booktitle={Proceedings of the 18th ACM international conference on Multimedia},
+  pages={391--400},
+  year={2010},
+  organization={ACM}
+}
+
+@inproceedings{resnick1994grouplens,
+  title={GroupLens: an open architecture for collaborative filtering of netnews},
+  author={Resnick, Paul and Iacovou, Neophytos and Suchak, Mitesh and Bergstrom, Peter and Riedl, John},
+  booktitle={Proceedings of the 1994 ACM conference on Computer supported cooperative work},
+  pages={175--186},
+  year={1994},
+  organization={ACM},
+  my_comment={
+Memory-Based Collaborative Filteringの代表手法の一つであるUser-Based Collaborative Filteringの論文。2018年時点で被引用数6442。
+  }
+}
+
+@inproceedings{sarwar2001item,
+  title={Item-based collaborative filtering recommendation algorithms},
+  author={Sarwar, Badrul and Karypis, George and Konstan, Joseph and Riedl, John},
+  booktitle={Proceedings of the 10th international conference on World Wide Web},
+  pages={285--295},
+  year={2001},
+  organization={ACM},
+  my_comment={
+Memory-Based Collaborative Filteringの代表手法の一つであるItem-Based Collaborative Filteringの提案論文。2018年時点で被引用数7423。途中でitem-based における類似度関数についてCosine-based Similarity,Correlation-based Similarity,Adjusted Cosine Similarity
+  }
+}
+
+@article{harper2016movielens,
+  title={The movielens datasets: History and context},
+  author={Harper, F Maxwell and Konstan, Joseph A},
+  journal={Acm transactions on interactive intelligent systems (tiis)},
+  volume={5},
+  number={4},
+  pages={19},
+  year={2016},
+  publisher={ACM},
+  my_comment={Movielensのデータセットを使って発表する際には、これを引用すること}
+}
+
+@inproceedings{hofmann1999latent,
+  title={Latent class models for collaborative filtering},
+  author={Hofmann, Thomas and Puzicha, Jan},
+  booktitle={IJCAI},
+  volume={99},
+  number={1999},
+  year={1999},
+  my_comment={PLSA（確率的潜在意味解析法）をレコメンデーションの問題に適応した論文。これはその先駆けになったもの。authorのHofmannがPLSAの提唱者の一人？}
+}
+
+@article{salton1989automatic,
+  title={Automatic text processing: The transformation, analysis, and retrieval of},
+  author={Salton, Gerard},
+  journal={Reading: Addison-Wesley},
+  year={1989},
+  my_comment={文章解析の鉄板であるtf-idfの提案論文。引用数7000。}
+}
+
+@Misc{Surprise,
+author =   {Hug, Nicolas},
+title =    { {S}urprise, a {P}ython library for recommender systems},
+howpublished = {http://surpriselib.com},
+year = {2017},
+my_comment={pythonのレコメンデーションライブラリ。}
+}
+
+@article{gunawardana2009survey,
+  title={A survey of accuracy evaluation metrics of recommendation tasks},
+  author={Gunawardana, Asela and Shani, Guy},
+  journal={Journal of Machine Learning Research},
+  volume={10},
+  number={Dec},
+  pages={2935--2962},
+  year={2009},
+  my_comment={レコメンデーションの評価指標値のサーベイ論文。少し古い。実は未読。2018/12時点で引用416}
+}
+
+@incollection{pazzani2007content,
+  title={Content-based recommendation systems},
+  author={Pazzani, Michael J and Billsus, Daniel},
+  booktitle={The adaptive web},
+  pages={325--341},
+  year={2007},
+  publisher={Springer},
+  my_comment={コンテンツベースのレコメンデーションの手法を体系的にまとめたドキュメント。2018/12時点で、引用数2000}
+}
+
+@inproceedings{popescul2001probabilistic,
+  title={Probabilistic models for unified collaborative and content-based recommendation in sparse-data environments},
+  author={Popescul, Alexandrin and Pennock, David M and Lawrence, Steve},
+  booktitle={Proceedings of the Seventeenth conference on Uncertainty in artificial intelligence},
+  pages={437--444},
+  year={2001},
+  organization={Morgan Kaufmann Publishers Inc.}
+}
+
+
+@article{zhang2017deep,
+  title={Deep learning based recommender system: A survey and new perspectives},
+  author={Zhang, Shuai and Yao, Lina and Sun, Aixin},
+  journal={arXiv preprint arXiv:1707.07435},
+  year={2017},
+  my_comment={ディープラーニングをつかったレコメンデーションシステムのサーベイ。2017年版と2018年版がある。こちらは2017年版。引用数は2019年1月で117}
+}
+
+@inproceedings{lam2008addressing,
+  title={Addressing cold-start problem in recommendation systems},
+  author={Lam, Xuan Nhat and Vu, Thuc and Le, Trong Duc and Duong, Anh Duc},
+  booktitle={Proceedings of the 2nd international conference on Ubiquitous information management and communication},
+  pages={208--211},
+  year={2008},
+  organization={ACM},
+  my_comment={ユーザーの属性情報も加味したTWO-WAY-ASPECTモデル。引用数は2019年2月で267}
+}
+
+@inproceedings{he2017neural,
+  title={Neural collaborative filtering},
+  author={He, Xiangnan and Liao, Lizi and Zhang, Hanwang and Nie, Liqiang and Hu, Xia and Chua, Tat-Seng},
+  booktitle={Proceedings of the 26th International Conference on World Wide Web},
+  pages={173--182},
+  year={2017},
+  organization={International World Wide Web Conferences Steering Committee},
+  my_comment={2019/3/23時点で引用数442。レコメンドにおけるdeep factorization machine を汎用的に表現できる手法としてNeural Collaborative Filtering を提案している。論文中では、user-item matrixから既存の手法が計算するlatent vectorが低次元の場合は十分に表現されず、また高次元では過学習になるトレードオフの問題を指摘し、それを解決するためのフレームワークとして提案している。欠損値である未観測の[u,i]についても尤度関数に組み込み、その負の対数を目的関数として組み込んだ上でSGDで学習する。この目的関数が binary cross-entoropy loss、あるいは log loss と呼ばれる手法と同じであることにも言及しつつ、未観測である欠損値をどのように扱いレコメンデーションの問題へ適応するのかをまとめている。未観測値の生成についても、全パターンの生成には時間がかかりすぎることを指摘し、１つの観測に対していくつの未観測値を生成すべきかなども検証している。}
+}
+
+@book{aggarwal2016recommender,
+  title={Recommender systems},
+  author={Aggarwal, Charu C and others},
+  year={2016},
+  publisher={Springer},
+  my_comment={レコメンデーションの研究をまとめたtextbook。この時点のsurveyとして比較的多く引用されている}
+}
+
+@inproceedings{stormer2007improving,
+  title={Improving e-commerce recommender systems by the identification of seasonal products},
+  author={Stormer, Henrik},
+  booktitle={AAAI Workshop},
+  pages={92--99},
+  year={2007},
+  my_comment={季節情報がe-commerceのレコメンデーションで有効だったことが報告されている}
+}
+
+@inproceedings{brenner2010predicting,
+  title={Predicting most rated items in weekly recommendation with temporal regression},
+  author={Brenner, Antoine and Pradel, Bruno and Usunier, Nicolas and Gallinari, Patrick},
+  booktitle={Proceedings of the Workshop on Context-Aware Movie Recommendation},
+  pages={24--27},
+  year={2010},
+  organization={ACM},
+  my_comment={曜日などの情報がレコメンデーションに有効であることが報告されている}
+}
+
+@inproceedings{ding2005time,
+  title={Time weight collaborative filtering},
+  author={Ding, Yi and Li, Xue},
+  booktitle={Proceedings of the 14th ACM international conference on Information and knowledge management},
+  pages={485--492},
+  year={2005},
+  organization={ACM},
+  my_commnet={レコメンデーションの最近のratingの重みを増す手法,Decay-Based Methodsの提案論文}
+}
+
+@inproceedings{koren2008factorization,
+  title={Factorization meets the neighborhood: a multifaceted collaborative filtering model},
+  author={Koren, Yehuda},
+  booktitle={Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={426--434},
+  year={2008},
+  organization={ACM},
+  my_comment={SVD++ の提案論文}
+}
+
+@inproceedings{koren2009collaborative,
+  title={Collaborative filtering with temporal dynamics},
+  author={Koren, Yehuda},
+  booktitle={Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={447--456},
+  year={2009},
+  organization={ACM},
+  my_comment={SVD++を時間変数を導入し、ユーザーIDとアイテムIDのバイアスが時間変化するモデルに再設計した。(time-SVD++)。有名論文}
+}
+
+@inproceedings{rendle2010factorization,
+  title={Factorization machines},
+  author={Rendle, Steffen},
+  booktitle={2010 IEEE International Conference on Data Mining},
+  pages={995--1000},
+  year={2010},
+  organization={IEEE},
+  my_comment={Factorization machines の提案論文。レコメンデーションへの応用を十分に意識している。これを Deep learning に応用した　deep factorization machines とも言うべき手法が生まれる}
+}
+
+
+@inproceedings{lian2018xdeepfm,
+  title={xdeepfm: Combining explicit and implicit feature interactions for recommender systems},
+  author={Lian, Jianxun and Zhou, Xiaohuan and Zhang, Fuzheng and Chen, Zhongxia and Xie, Xing and Sun, Guangzhong},
+  booktitle={Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
+  pages={1754--1763},
+  year={2018},
+  organization={ACM},
+  my_comment={deep factorization machines の一つ}
+}
+
+@inproceedings{zhang2016deep,
+  title={Deep learning over multi-field categorical data},
+  author={Zhang, Weinan and Du, Tianming and Wang, Jun},
+  booktitle={European conference on information retrieval},
+  pages={45--57},
+  year={2016},
+  my_comment={deep factorization machines の一つ。}
+}
+
+@inproceedings{cheng2016wide,
+  title={Wide \& deep learning for recommender systems},
+  author={Cheng, Heng-Tze and Koc, Levent and Harmsen, Jeremiah and Shaked, Tal and Chandra, Tushar and Aradhye, Hrishi and Anderson, Glen and Corrado, Greg and Chai, Wei and Ispir, Mustafa and others},
+  booktitle={Proceedings of the 1st workshop on deep learning for recommender systems},
+  pages={7--10},
+  year={2016},
+  organization={ACM},
+  my_comment={deep factorization machines の一つ。Wide\&Deepモデルの提案論文}
+}
+
+
+@article{herlocker2004evaluating,
+  title={Evaluating collaborative filtering recommender systems},
+  author={Herlocker, Jonathan L and Konstan, Joseph A and Terveen, Loren G and Riedl, John T},
+  journal={ACM Transactions on Information Systems (TOIS)},
+  volume={22},
+  number={1},
+  pages={5--53},
+  year={2004},
+  publisher={ACM},
+  my_comment={人工知能学会の学会誌査読で教えていただいた論文で、レコメンデーションの評価方法について議論している。2019年で引用数は5000以上。}
+}
+
+@inproceedings{ge2010beyond,
+  title={Beyond accuracy: evaluating recommender systems by coverage and serendipity},
+  author={Ge, Mouzhi and Delgado-Battenfeld, Carla and Jannach, Dietmar},
+  booktitle={Proceedings of the fourth ACM conference on Recommender systems},
+  pages={257--260},
+  year={2010},
+  organization={ACM},
+  my_comment={herlocker2004evaluatingの実際の計算方法を提案した論文。2019年で引用数は400以上}
+}
+
+@inproceedings{ziegler2005improving,
+  title={Improving recommendation lists through topic diversification},
+  author={Ziegler, Cai-Nicolas and McNee, Sean M and Konstan, Joseph A and Lausen, Georg},
+  booktitle={Proceedings of the 14th international conference on World Wide Web},
+  pages={22--32},
+  year={2005},
+  organization={ACM},
+  my_comment={レコメンドのリストの多様性評価指標の提案論文。2019年で引用数は1500以上。}
+}
+
+@inproceedings{dacrema2019we,
+  title={Are we really making much progress? A worrying analysis of recent neural recommendation approaches},
+  author={Dacrema, Maurizio Ferrari and Cremonesi, Paolo and Jannach, Dietmar},
+  booktitle={Proceedings of the 13th ACM Conference on Recommender Systems},
+  pages={101--109},
+  year={2019},
+  organization={ACM},
+  my_comment={近年の stage of the art のレコメンドアルゴリズムについて、十分にパラメータ調整をした古典的なitem-based model と精度検証を行った結果、かなりのアルゴリズムがitem-basedより性能が劣ったことを私的した論文。結論、Baselineはガウス過程などを用いてちゃんとチューニングすべき、データはなるべく多く検証すべき、などを主張している。}
+}
+
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
