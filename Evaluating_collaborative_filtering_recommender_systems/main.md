@@ -116,9 +116,18 @@ Inherentとはuserがitemにratingを行う上で、必然的に考慮しなけ�
 Sample とは一般的にデータセットを評価するために一般的だと考えられる統計的な要素。
 
 ```
-(a) the density of the ratings set overall, sometimes measured as the averag percentage of items that have been rated per user; since many datasets have uneven popularity distributions, density may be artificially manipulated b including or excluding items;
-(b) the number or density of ratings from the users for whom recommendation are being made, which represents the experience of the user in the system a the time of recommendation; ratings from users with significant experienc can be withheld to simulate the condition when they were new users;
-an (c) the general size and distribution properties of the data set—some data set have more items than users, though most data sets have many more user than items.
+(a) the density of the ratings set overall,
+sometimes measured as the averag percentage of items that have been rated per user;
+since many datasets have uneven popularity distributions,
+density may be artificially manipulated b including or excluding items;
+
+(b) the number or density of ratings from the users for whom recommendation are being made,
+which represents the experience of the user in the system a the time of recommendation;
+ratings from users with significant experienc can be withheld to simulate the condition
+when they were new users;
+
+an (c) the general size and distribution properties of the data set—some data set have more items than users,
+though most data sets have many more user than items.
 ```
 
 ### 3.4 Past adn Current Trends in Datasets
