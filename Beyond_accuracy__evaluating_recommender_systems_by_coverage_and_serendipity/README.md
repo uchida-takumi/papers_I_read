@@ -49,11 +49,8 @@ $$
 PredictionCoverage = \frac{|I_p|}{|I|}
 $$
 
-$I_p$ :
-  システムがレコメンドしうるitemの集合
-
-$I$ :
-    itemの全集合
+- $I_p$ :　システムがレコメンドしうるitemの集合
+- $I$ : itemの全集合
 
 単なる価格フィルタ表示システムであれば、5000円以下のitemは全て $I_p$ に含まれます。
 
@@ -61,18 +58,14 @@ $$
 WeightedPredictionCoverage = \frac{\sum_{i \in I_p}r(i)}{\sum_{j \in I}r(j)}
 $$
 
-$r(i)$ :
-    item $i$ が提案された時の有用性。この有用性については別に定義が必要です。
+- $r(i)$ : item $i$ が提案された時の有用性。この有用性については別に定義が必要です。
 
 $$
 CatalogCoverage = \frac{|U_{j=1...N}I_{L}^{j}|}{|I|}
 $$
 
-$I_{L}^{j}$ :
-    計測期間中に $j$ 回目に推薦した top-n item リスト $L$ に含まれるitem集合。  
-
-$N$ :
-  観測されたレコメンデーションの回数
+- $I_{L}^{j}$ : 計測期間中に $j$ 回目に推薦した top-n item リスト $L$ に含まれるitem集合。  
+- $N$ : 観測されたレコメンデーションの回数
 
 つまり、catalog coverage は一度でも表示されたitemの和集合とitemの全集合の比率です。
 
@@ -80,8 +73,7 @@ $$
 WeightedCatalogCoverage = \frac{|U_{j=1...N}I_{L}^{j} \bigcap B^j|}{|U_{j=1...N}B^j|}
 $$
 
-$B^j$ :
-  有効であると定義されたitem集合。定義は別に必要になります。
+- $B^j$ : 有効であると定義されたitem集合。定義は別に必要になります。
 
 ## 3. SERENDIPITY
 
