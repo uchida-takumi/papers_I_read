@@ -58,7 +58,6 @@ $$
 w_i(b_k) = \frac
   {\sum_{b_e \in B_k^{'}}(c(b_k,b_e) \cdot r_i(b_e))}
   {\sum_{b_e \in B_k^{'}}|c(b_k,b_e)|}
-
 \;\;\;\;...(1)
 \\
 where\;\;\;\;B_k^{'} := {b_e|b_e \in clique(b_k) \wedge r_i(b_k) \neq \bot}
