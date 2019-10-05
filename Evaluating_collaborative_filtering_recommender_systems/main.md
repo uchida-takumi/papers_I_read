@@ -1,4 +1,3 @@
-# Evaluationg Collaborative Filtering Recommender Systems の概要
 
 2004年ACMで掲載されたこのサーベイ論文は、レコメンデーションシステムの評価手法をまとめている。
 現時点（2019/9/28)で被引用数は5895も多く、課題もよく整理されているので、この分野の研究や業務を行なっているのであれば目を通しておきたい論文だと言える。
@@ -17,120 +16,153 @@ https://dl.acm.org/citation.cfm?id=963772
 
 ## 1章：INTRODUCTION
 
-省略
+レコメンデーションの評価研究の重要性など、研究意義をまとめています。
+ここでは省略します。
 
 
 ## 2章：USER TASKS FOR RECOMMENDER SYSTEMS
 
-そもそもレコメンデーションシステムを評価する上で、レコメンドを利用するuserがどのような目的でどのような行動をしているかを整理する必要があります。
+そもそもレコメンデーションシステムを評価する前に、レコメンドを利用するuserがどのような目的を持って行動をしているかを整理する必要があります。
+以下で、そのパターンを羅列します。
 
-userの行動は以下のようなものがあり、それぞれに求められるレコメンデーションの性能が変わります。
-
-- Annotation in Context
+- Annotation in Context　（情報に注釈タグをつけフィルタリングする）
 
 　itemに注釈(Annotation)をつけ、どれを読むべきかを判断します。場合によっては除外するメッセージの自動フィルタなどにも転用されます。
 
 
-- Find Good Items
+- Find Good Items　（自分にとって良いitemを見つける）
 
   itemのランキングリストを表示します。映画コンテンツのレコメンドなどの一般的なレコメンデーションに相当します。
 
-- Find All Good items
+- Find All Good items　（必要なitemを全て見つける）
 
-  一般的にはitemは非常に多いため、userは効率的に良いものがレコメンドされれば良く、多少の良いitemがリストから漏れていても気にしません。ただし、判例データベースからのレコメンドシステムなどでは別です。このケースでは効率性よりもcoverageが重要になります。
+  一般的にはitemは多く、userは多少の良いitemが推薦リストから漏れていても気にしません。
+　ただし、裁判の判例データベースからのレコメンドなどでは違います。全ての判例を参照する必要があります。このケースでは効率性よりもcoverageが重要になります。
 
-- Recommend Sequence
+- Recommend Sequence　（推薦する順番が重要）
 
-  例えば楽曲のレコメンデーションであれば、推薦する曲の順番も重要になります。他には論文の推薦システムでもそうです。
+  例えば楽曲のレコメンデーションであれば、推薦する曲の順番も重要になります。他には論文を読む順番を推薦するシステムでもそうです。
 
-- Just Browsing
+- Just Browsing　（見ているだけ）
 
-  レコメンデーションは多くの場合、userが購買を目的としていることを前提としています。しかし、単にitemを眺めるのが楽しいuserも存在します。この場合、精度よりもインターフェースや情報提供が重要になります。
+  レコメンデーションは多くの場合、userが購買を目的としていることを前提としています。しかし、単にitemを眺めて楽しんでいるuserも存在します。この場合は精度よりが重要というわけではありません。
 
-- Find Credible Recommender
+- Find Credible Recommender （この推薦システムは信用できるのかな？）
 
-  userはレコメンドシステムを信頼しないことがあります。それは彼らがシステムに対して送信する苦情メッセージの多さが証明しています。実用的に調整されたレコメンデーションリストは、userがすでに気に入っているitemを表示しないため、それによってuserからの信頼を得られないかもしれません。どのようにuserが信頼するシステムにするかが課題です。
+  userはレコメンドシステムを疑っています。それは彼らから寄せられる推薦結果についての苦情メッセージの多さが証明しています。
+　実用的に調整された推薦リストには、userがすでに気に入っているitemが含まれていません。しかし、それによってuserはレコメンデーションシステムを信頼しなくなることがあります。どのようにuserが信頼するシステムにするかが課題です。
 
-- Improve Profile
+- Improve Profile （ratingを行う）
 
   userがitemを評価することです。
 
-- Express Self
+- Express Self (趣味でレビューを投稿する)
 
-  自己表現あるいは趣味としてitemをレビューするuserが存在します。MovieLensに1000以上の映画レビューを投稿したuserにインタビューをしましたが、彼らはレコメンデーションの性能に貢献しているためにレビューを投稿している訳ではありませんでした。
+  自己表現あるいは趣味としてitemをレビューするuserが存在します。MovieLensに1000以上の映画レビューを投稿したuserにインタビューをしましたが、彼らはレコメンデーションの性能に貢献する意識はありませんでした。
 
-- Help Others
+- Help Others (みんなのためにレビューを投稿する)
 
   Express Selfだけではなく、レビューをすることで他者を助け、それによってコミュニティに貢献できる。そう考えるuserもいます。
 
-- Influence Others
+- Influence Others (贔屓のitemを応援したい)
 
   例えば、ある映画のファンが公開前にもかかわらず高評価レビューを投稿してその映画を応援するような行動です。
 
+
 ## 3章：SELECTING DATA SETS FOR EVALUATION
 
-レコメンデーションの評価を行う際に、検証データの選定は重要です。いくつかのパターンについて紹介します。
+レコメンデーションの評価を行う際に検証データの選定は重要です。
+
 
 ### 3.1: Live User Experiments vs. Offline Analyses
 
 ユーザー参加型のオンラインテストと過去データを用いたオフラインテストには違いがあります。
 
 一般的には研究や検証ではオフラインテストが多いです。
-オフラインテストには多くの利点がありますが、すでに観測された(user,item)の組み合わせデータしか存在しない中でのテストになります。
-よって、userに対してオフラインデータで観測されていないitemを推薦した場合の評価は不可能です。
+オフラインテストには多くの利点がありますが、すでに観測された(user,item)の組み合わせしか評価できません。
 実施は困難ですが、ユーザー参加型のオンラインテストであればこの問題は解決できます。
 
 ### 3.2 Synthesized vs. Natural Data Sets
 
 合成データを用いるかどうかの判断です。
-シミュレートされたデータを用いることで、容易にアルゴリズムの評価ができますが、例外的な行動をするuserについての検証にはなりません。
+シミュレートされたデータを用いることで、容易にアルゴリズムの評価ができますが、例外的な行動をするuserについての検証はできません。
 また、生成パターンに適合した特定のアルゴリズムが優位になるため、アルゴリズムの比較として用いるのには問題があります。
 
 ### 3.3 Properties of Data Sets
 
-その評価検証に必要なデータの要素を考えるべきでで、それはDomain, Inherent, Sample の三種類があります。
+その検証に必要なデータの要素です。Domain, Inherent, Sample の三種類があります。
 
 Domainとはそのレコメンデーションが実施される状況に依存するものです。
 
 ```
 (a) the content topic being recommended/rated and the associated context in which rating/recommendation takes place;
+　その推薦が行われる状況変数。
+
 (b) the user tasks supported by the recommender;
+　その推薦がフォローするユーザーの目的や行動。
+
 (c) the novelty need and the quality need;
+　その推薦が必要とする、新規性や品質
+
 (d) the cost/benefit ratio of false/true positives/negatives;
+　recallやprecisionの適切な比率を決める推薦リスク/収益バランス
+
 (e) the granularity of true user preferences.
+　？？？
 ```
 
 Inherentとはuserがitemにratingを行う上で、必然的に考慮しなければならないものです。
 
 ```
 (a) whether ratings are explicit, implicit, or both;
- *注釈: explicitは1~5点などの明確な満足度rating、explicitは購買などの不明確な満足度rating
+ explicitは1~5点などの明確な満足度rating、explicitは購買などの不明確な満足度rating
+
 (b) the scale on which items are rated;
+　ratingのスコアスケール。explicitなら0,1のbinaryスケール。
+
 (c) the dimensions of rating; and
+  ratingの次元。
+
 (d) the presence or absence of a timestamp on ratings.
+　timestampの有無や必要性
+
 (e) whether the recommendations displayed to the user were recorded; and
+　推薦リストの表示履歴が計測されているかどうか。
+
 (f) the availability of user demographic information or item content information.
+　userやitemの属性情報を利用できるか
+
 (g) the biases involved in data collection.
+　データを収集しているときに発生するバイアス
 ```
 
 Sample とは一般的にデータセットを評価するために一般的だと考えられる統計的な要素。
 
 ```
 (a) the density of the ratings set overall,
-sometimes measured as the averag percentage of items that have been rated per user;
+sometimes measured as the average percentage of items that have been rated per user;
 since many datasets have uneven popularity distributions,
 density may be artificially manipulated b including or excluding items;
+データセットがratingの平均値などの処理がされている場合があります。
+特定のitemの除外などの処理が施されているかなど、確認すべきことがあります。
+
 
 (b) the number or density of ratings from the users for whom recommendation are being made,
 which represents the experience of the user in the system a the time of recommendation;
-ratings from users with significant experienc can be withheld to simulate the condition
+ratings from users with significant experience can be withheld to simulate the condition
 when they were new users;
 
-an (c) the general size and distribution properties of the data set—some data set have more items than users,
+userとitemの分布を確認しましょう。
+また、何度もratingをしているuserの過去データを隠すことで、彼らが新規ユーザーの時の状態をシミュレートすることもできます。
+
+an (c) the general size and distribution properties of the data set.
+some data set have more items than users,
 though most data sets have many more user than items.
+データセットのサイズを確認しましょう。
+いっぱんてきにはitemよりもuserが多いですが、その逆の場合もあります。
 ```
 
-### 3.4 Past adn Current Trends in Datasets
+### 3.4 Past and Current Trends in Datasets
 
 利用可能なデータセットの紹介。
 この論文が2004年と過去のものなので省略。
@@ -154,14 +186,14 @@ though most data sets have many more user than items.
 
 もっとも代表的なのがratingの平均絶対値誤差(MAE)です。
 
-詳細の開発は不要だと思いますので、省略します。
+詳細の解説は不要だと思いますので、省略します。
 
 #### 4.1.2 Classification Accuracy Metrics
 
 適切なitemを推薦できているかの指標です。
 ユーザータスクとしては、2章で解説した「Find Good Items」に対応する指標と言えます。
 
-ここで紹介するのはROC曲線を応用したものです（後述のfigure2が具体例です）。
+ここで紹介するのはROC曲線です（後述のfigure2が具体例です）。
 ROC曲線は以下の手順で計算され、総合的な精度指標としてはAUCを用います。
 
 ```
@@ -192,31 +224,31 @@ ROC曲線は以下の手順で計算され、総合的な精度指標として�
 
 ```
 
-![fig2](img/fig2.png)
+![fig2.png](img/fig2.png)
 
 #### 4.1.3 Rank Accuracy Metrics
 
-Classification Accuracy Metrics はitemごとに適切かどうかのbinaryな指標ではありましたが、より適切なitemがリストの先頭に提案しているかの性能指標がRank Accuracy Metricsです。
+Classification Accuracy Metrics はitemごとに適切かどうかのbinaryな指標ではありましたが、itemの順番も考慮した性能指標がRank Accuracy Metricsです。
 
-このRank Accuracy Metricsの計算では、itemの適切度が非binaryであり順序性が必要となります。
+しかし、映画に1~5の5段階評価のスコアをつけるデータセットでは、このような場合にRank Accuracy Metricsを用いるのは不適切です。
+なぜなら、複数のitemが5点の同順位となって指標値を適切に算出できません。
 
-例えば映画に1~5の五段階評価のスコアをつけるデータセットでは、複数のitemが5点をつけられて順序をつけることが出来ません。
-このような場合にRank Accuracy Metricsを用いるのは不適切です。
-
-シンプルに、相関係数などの指標を用いることで指標化することが出来ます。
+もちいる指標値は、シンプルに相関係数などを用います。
 
 
 #### 4.1.4 Prediction-Rating Correlation
 
-同じデータセットに対して、これらの別カテゴリの精度指標を適合させ、各userごとのそれぞれの精度指標値の相関分布を確認するとfigure7のようになります。
+これらの３つの指標カテゴリは、レコメンデーションの別々の性能側面を評価しているといえます。
+
+その確認のために、同じデータセットに対して各精度指標を適合させ、各userごとのそれぞれの精度指標値の相関分布を確認するとfigure7のようになります。
 
 この図では、カテゴリごとの代表的な指標値を採用して表示しています。
 
 mean.abs.err は Predictive Accuracy Metrics の代表指標です。roc.4.per.user は Classification Accuracy Metrics、person.per.user は Rank Accuracy Metrics です。
 
-この図は、それぞれのカテゴリごとに評価値が無相関であることを示しています。これらの指標値が表す精度は異なる側面を評価していると言えます。
+この相関散布図は、それぞれのカテゴリごとに評価値が無相関であることを示しています。なので、これらの指標値は異なる側面を評価していると考えられます。
 
-![fig7](img/fig7.png)
+![fig7.png](img/fig7.png)
 
 原著論文では同じカテゴリ内では、高い相関性が確認されたことも報告しています。詳細は原著をご確認ください。
 
@@ -247,8 +279,9 @@ Coverageのもっとも単純な指標は提案するitemの数や割合を計�
 
 ### 5.2 Learning Rate
 
-アルゴリズムによって、実用的な精度に到達す流のに必要なデータ量は変わります。
+アルゴリズムによって、実用的な精度に到達するために必要なデータ量は変わります。
 この学習効率をLearning Rateと呼びます。
+（コメント ： この性能が高いほどスパースに対する強度が高いと言えそうです）
 
 Learning Rateにはシステム全体とuserごと、itemごとの３種類があります。
 
@@ -269,8 +302,10 @@ itemsごとのLearning Rateも、ratingされた回数を変数とする関数�
 また、このような明らか推薦がuserからのシステムに対する信頼を増加させることも報告されています。
 さらにuserは身近なitemばかりを購入します。
 
+逆に意外なitemの推薦がuserに喜ばれる状況もあります。例えば、webの論文検索や無料の楽曲視聴ではより目新しいitemが好まれました。無料という状況が影響しているのかもしれません。
+
 こららの事実からNovelty,Serendipityの重要性には議論が必要です。
-例えば、webの論文検索や無料の楽曲視聴ではより目新しいitemが好まれました。
+
 
 ### 5.4 Confidence
 
